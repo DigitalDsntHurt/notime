@@ -1,0 +1,10 @@
+.timer-box {
+  /* width: 80vw; */
+  border: solid 1px black;
+  /* margin-top: 8vh;
+  margin: auto; */
+  margin: 8vh 36vw;
+  padding: 8vh 4vw 16vh 4vw;
+  text-align: center;
+  border-radius: 15px;
+}
