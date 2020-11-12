@@ -58,10 +58,12 @@ let stopwatch = function() {
     function() {
       if (stopwatchSeconds > 0) {
         stopwatchSecondsDisplay.textContent=stopwatchSeconds;
+        document.querySelector('title').textContent=stopwatchSeconds;
         stopwatchSeconds--;
       } else {
         bell.play();
         stopwatchSecondsDisplay.textContent=stopwatchSeconds;
+        document.querySelector('title').innerHTML='tick.tock';
         clearInterval(stopwatchId);
         setTimeout(
           function() {
