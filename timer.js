@@ -1,3 +1,4 @@
+const bell = new Audio('bell.mp3');
 
 
 // TIMER
@@ -9,6 +10,7 @@ const timerSecondsDisplay = timerBox.querySelector('h2.time');
 let count = 0;
 timerSecondsDisplay.textContent=count;
 let timerId;
+
 // START TIMER
 let timer = function(){
   timerId = setInterval(
@@ -35,14 +37,54 @@ let resetTimer = function() {
 };
 timerResetButton.addEventListener('click', resetTimer);
 
-
-
 // STOPWATCH
 const stopwatchBox = document.querySelector('.stopwatch-box')
-const stopwatchStartButton;
-const stopwatchStopButton;
-const stopwatchResetButton;
+const stopwatchStartButton = stopwatchBox.querySelector('#start');
+const stopwatchStopButton = stopwatchBox.querySelector('#stop');
+const stopwatchResetButton = stopwatchBox.querySelector('#reset');
 const stopwatchSecondsDisplay = stopwatchBox.querySelector('h2.time');
 
-let stopwatchTime = 0;
-stopwatchSecondsDisplay.textContent=stopwatchTime;
+let stopwatchId;
+let stopwatchSeconds;
+
+// START STOPWATCH
+let stopwatch = function() {
+  if (!stopwatchSeconds) {
+    stopwatchSeconds = Number.parseInt(stopwatchBox.querySelector('#seconds-input').value);
+  } else {
+    // stopwatchSeconds = 0;
+  }
+  stopwatchId = setInterval(
+    function() {
+      if (stopwatchSeconds > 0) {
+        stopwatchSecondsDisplay.textContent=stopwatchSeconds;
+        stopwatchSeconds--;
+      } else {
+        bell.play();
+        stopwatchSecondsDisplay.textContent=stopwatchSeconds;
+        clearInterval(stopwatchId);
+        setTimeout(
+          function() {
+            stopwatchSecondsDisplay.innerHTML="<input id='seconds-input'/>"
+          },
+          500
+        )
+      }
+    },
+    1000
+  );
+}
+
+// STOP STOPWATCH
+let stopStopwatch = function() {
+  clearInterval(stopwatchId);
+};
+stopwatchStopButton.addEventListener('click', stopStopwatch)
+
+// RESET STOPWATCH
+let resetStopwatch = function() {
+  clearInterval(stopwatchId);
+  stopwatchSeconds = 0;
+  stopwatchSecondsDisplay.innerHTML="<input id='seconds-input'/>"
+};
+stopwatchResetButton.addEventListener('click', resetStopwatch);

@@ -10,16 +10,19 @@
   </head>
 
   <body>
-    <div class='timer-box'>
-      <h1>Timer</h1>
-      <h2 class='time'></h2>
-      <button id='start'>Start</button>
+    <div class='stopwatch-box'>
+      <h1>Stopwatch</h1>
+      <h2 class='time'>
+        <input id='seconds-input'/>
+      </h2>
+      <input type='submit' value='Start' id='start' onclick='stopwatch()' />
+      <!-- <button id='start'>Start</button> -->
       <button id='stop'>Stop</button>
       <button id='reset'>Reset</button>
     </div>
 
-    <div class='stopwatch-box'>
-      <h1>Stopwatch</h1>
+    <div class='timer-box'>
+      <h1>Timer</h1>
       <h2 class='time'></h2>
       <button id='start'>Start</button>
       <button id='stop'>Stop</button>
