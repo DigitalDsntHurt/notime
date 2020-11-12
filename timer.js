@@ -1,33 +1,48 @@
 
-const startButton =  document.querySelector('#start');
-const stopButton =  document.querySelector('#stop');
-const resetButton =  document.querySelector('#reset');
-const secondsDisplay = document.querySelector('h2.time');
+
+// TIMER
+const timerBox = document.querySelector('.timer-box');
+const timerStartButton =  timerBox.querySelector('#start');
+const timerStopButton =  timerBox.querySelector('#stop');
+const timerResetButton =  timerBox.querySelector('#reset');
+const timerSecondsDisplay = timerBox.querySelector('h2.time');
 let count = 0;
-secondsDisplay.textContent=count;
+timerSecondsDisplay.textContent=count;
 let timerId;
-// START THE TIMER
+// START TIMER
 let timer = function(){
   timerId = setInterval(
     function() {
       count++;
-      secondsDisplay.textContent=count;
+      timerSecondsDisplay.textContent=count;
     },
     1000
   );
 };
-startButton.addEventListener('click', timer);
+timerStartButton.addEventListener('click', timer);
 
-// STOP THE TIMER
+// STOP TIMER
 let stopTimer = function() {
   clearInterval(timerId);
 };
-stopButton.addEventListener('click', stopTimer);
+timerStopButton.addEventListener('click', stopTimer);
 
-// RESET THE TIMER
+// RESET TIMER
 let resetTimer = function() {
   clearInterval(timerId);
   count = 0;
-  secondsDisplay.textContent=count;
+  timerSecondsDisplay.textContent=count;
 };
-resetButton.addEventListener('click', resetTimer);
+timerResetButton.addEventListener('click', resetTimer);
+
+
+
+// STOPWATCH
+const stopwatchBox = document.querySelector('.stopwatch-box')
+const stopwatchStartButton;
+const stopwatchStopButton;
+const stopwatchResetButton;
+const stopwatchSecondsDisplay = stopwatchBox.querySelector('h2.time');
+
+let stopwatchTime = 0;
+stopwatchSecondsDisplay.textContent=stopwatchTime;
