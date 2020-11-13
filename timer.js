@@ -42,7 +42,6 @@ let stopwatchSeconds;
 // START STOPWATCH
 let stopwatch = function() {
   if (!stopwatchSeconds) {
-    // stopwatchSeconds = Number.parseInt(stopwatchBox.querySelector('#seconds-input').value);
     let inputMins = Number.parseInt(stopwatchBox.querySelector('#minutes-input').value);
     let inputSecs = Number.parseInt(stopwatchBox.querySelector('#seconds-input').value);
     stopwatchSeconds = minsAndSecsToSecs(inputMins, inputSecs);
@@ -50,13 +49,8 @@ let stopwatch = function() {
   stopwatchId = setInterval(
     function() {
       if (stopwatchSeconds > 0) {
-        ////////
-        // console.log(secsToMinsAndSecs(stopwatchSeconds))
-        ////////
-        // stopwatchSecondsDisplay.textContent=stopwatchSeconds;
         stopwatchSecondsDisplay.textContent=secsToMinsAndSecs(stopwatchSeconds);
         document.querySelector('title').textContent=secsToMinsAndSecs(stopwatchSeconds);
-        // document.querySelector('title').textContent=secsToMinsAndSecs(stopwatchSeconds);
         stopwatchSeconds--;
       } else {
         bell.play();
@@ -65,7 +59,6 @@ let stopwatch = function() {
         clearInterval(stopwatchId);
         setTimeout(
           function() {
-            // stopwatchSecondsDisplay.innerHTML="<input id='seconds-input'/>"
             stopwatchSecondsDisplay.innerHTML="<table align='center'><tr><td><input class='time-input' id='minutes-input' placeholder='minutes'/></td><td><input class='time-input' id='seconds-input' placeholder='seconds' value='0'/></td></tr></table>"
           },
           500
@@ -86,8 +79,8 @@ stopwatchStopButton.addEventListener('click', stopStopwatch)
 let resetStopwatch = function() {
   clearInterval(stopwatchId);
   stopwatchSeconds = 0;
-  // stopwatchSecondsDisplay.innerHTML="<input id='seconds-input'/>"
   stopwatchSecondsDisplay.innerHTML="<table align='center'><tr><td><input class='time-input' id='minutes-input' placeholder='minutes' /></td><td><input class='time-input' id='seconds-input' placeholder='seconds' value='0'/></td></tr></table>"
+  document.querySelector('title').innerHTML='tick.tock';
 };
 stopwatchResetButton.addEventListener('click', resetStopwatch);
 
