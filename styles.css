@@ -1,9 +1,15 @@
 .stopwatch-box, .timer-box {
   border: solid 1px black;
-  margin: 8vh 36vw;
+  margin: 8vh 18vw;
   padding: 8vh 4vw 16vh 4vw;
   text-align: center;
   border-radius: 15px;
+}
+
+.time-input {
+  min-width: 50%;
+  text-align: center;
+  margin: auto;
 }
 
 @media only screen and (max-width: 900px) {

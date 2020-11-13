@@ -13,10 +13,18 @@
     <div class='stopwatch-box'>
       <h1>Stopwatch</h1>
       <h2 class='time'>
-        <input id='seconds-input'/>
+        <table align='center'>
+          <tr>
+            <td>
+              <input class='time-input' id='minutes-input' placeholder='minutes'/>
+            </td>
+            <td>
+              <input class='time-input' id='seconds-input' placeholder='seconds' value='0'/>
+            </td>
+          </tr>
+        </table>
       </h2>
       <input type='submit' value='Start' id='start' onclick='stopwatch()' />
-      <!-- <button id='start'>Start</button> -->
       <button id='stop'>Stop</button>
       <button id='reset'>Reset</button>
     </div>
@@ -32,3 +40,4 @@
     <script type="text/javascript" src="timer.js"></script>
   </body>
 </html>
+
